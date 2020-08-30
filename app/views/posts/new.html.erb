@@ -1,0 +1,5 @@
+<%= form_with model: @post do |f| %>
+  <%= f.label :body, 'Write your post here:' %>
+  <%= f.text_area :body %>
+  <%= submit_tag("Post") %>
+<% end %>

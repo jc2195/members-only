@@ -1,0 +1,16 @@
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+<% else %>
+  <%= link_to('Login', new_user_session_path) %>
+<% end %>
+<%= link_to('Create Post', new_post_url, method: :get) %> 
+
+<% @posts.each do |post| %>
+  <div><%= post.body %> 
+  <% if user_signed_in? %>
+    - <%= post.user.username %>
+  <% else %>
+    'Shhhh... It's a secret'
+  <% end%>
+  </div><br>
+<% end %>
